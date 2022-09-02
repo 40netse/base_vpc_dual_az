@@ -1,0 +1,34 @@
+
+aws_region                  = "us-east-1"
+availability_zone1          = "a"
+availability_zone2          = "c"
+
+#
+# customer_prefix and environment git prepended to all resources created by the template.
+# Used for identification. e.g. "fortinet-production"
+#
+customer_prefix             = "prefix"
+environment                 = "env"
+vpc_name_security           = "security"
+vpc_cidr_security           = "10.0.0.0/16"
+
+#
+# Subnet bits = number of bits used in the cidr for subnet.
+# e.g. 10.0.0.0/16 cidr with 8 subnet bits means each subnet is 10.0.0.0/24, 10.0.1.0/24, etc
+#
+subnet_bits                 = 8
+
+#
+# index in the subnet in the cidr range.
+# e.g. index 1 in 10.0.0.0/16 is 10.0.1.0/24
+#
+public_subnet_index         = 1
+private_subnet_index        = 2
+
+public1_description         = "public-subnet_1"
+private1_description        = "private-subnet_1"
+
+public2_description         = "public-subnet_2"
+private2_description        = "private-subnet_2"
+vpc_tag_value               = ""
+
