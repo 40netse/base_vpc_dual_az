@@ -25,11 +25,11 @@ subnet_bits                 = 8
 public_subnet_index         = 1
 private_subnet_index        = 2
 
-public1_description         = "public-subnet_1"
-private1_description        = "private-subnet_1"
+public1_description         = "public-1"
+private1_description        = "private-1"
 
-public2_description         = "public-subnet_2"
-private2_description        = "private-subnet_2"
-vpc_tag_key                 = "mdw-tag-key"
-vpc_tag_value               = "mdw-tag-value"
+public2_description         = "public-2"
+private2_description        = "private-2"
+vpc_tag_key                 = "id-tag-key"
+vpc_tag_value               = "id-tag-value"
 
