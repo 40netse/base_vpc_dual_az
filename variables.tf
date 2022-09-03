@@ -40,6 +40,10 @@ variable "public2_description" {
 variable "private2_description" {
     description = "Description Private Subnet 2 TAG"
 }
+variable "vpc_tag_key" {
+    description = "Random Tag Key to place on VPC for data ID"
+    default     = ""
+}
 variable "vpc_tag_value" {
     description = "Random Tag Value to place on VPC for data ID"
     default     = ""
