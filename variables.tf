@@ -1,17 +1,17 @@
 variable "aws_region" {
   description = "The AWS region to use"
 }
-variable "availability_zone1" {
-  description = "Availability Zone 1 for VPC"
-}
-variable "availability_zone2" {
-  description = "Availability Zone 2 for VPC"
-}
 variable "customer_prefix" {
   description = "Customer Prefix to apply to all resources"
 }
 variable "environment" {
   description = "The Tag Environment to differentiate prod/test/dev"
+}
+variable "availability_zone1" {
+  description = "Availability Zone 1 for VPC"
+}
+variable "availability_zone2" {
+  description = "Availability Zone 2 for VPC"
 }
 variable "vpc_name_security" {
   description = "VPC Name"
