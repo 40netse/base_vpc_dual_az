@@ -13,6 +13,10 @@ output "private1_subnet_id" {
     description = "The Subnet Id of the newly created Private Subnet"
 }
 
+output "tgw1_subnet_id" {
+  value = module.tgw1-subnet[*].id
+    description = "The Subnet Id of the newly created TGW Subnet"
+}
 
 output "public2_subnet_id" {
   value = module.public2-subnet.id
@@ -22,6 +26,11 @@ output "public2_subnet_id" {
 output "private2_subnet_id" {
   value = module.private2-subnet.id
   description = "The Subnet Id of the newly created Private Subnet"
+}
+
+output "tgw2_subnet_id" {
+  value = module.tgw2-subnet[*].id
+    description = "The Subnet Id of the newly created TGW 2 Subnet"
 }
 
 output "vpc_main_route_table_id" {
@@ -43,5 +52,16 @@ output "private1_route_table_id" {
 
 output "private2_route_table_id" {
   value = module.private2_route_table.id
+  description = "Id of the VPC Private 2 Route Table"
+}
+
+output "tgw1_route_table_id" {
+  value = module.tgw1_route_table[*].id
+  description = "Id of the VPC Private 1 Route Table"
+}
+
+
+output "tgw2_route_table_id" {
+  value = module.tgw2_route_table[*].id
   description = "Id of the VPC Private 2 Route Table"
 }

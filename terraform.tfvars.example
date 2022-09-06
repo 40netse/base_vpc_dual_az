@@ -3,6 +3,7 @@ aws_region                  = "us-east-1"
 availability_zone1          = "a"
 availability_zone2          = "c"
 
+create_tgw_connect_subnets  = false
 #
 # customer_prefix and environment git prepended to all resources created by the template.
 # Used for identification. e.g. "fortinet-production"
@@ -24,12 +25,16 @@ subnet_bits                 = 8
 #
 public_subnet_index         = 1
 private_subnet_index        = 2
+tgw_subnet_index            = 3
 
 public1_description         = "public-1"
 private1_description        = "private-1"
+tgw1_description            = "tgw-1"
 
 public2_description         = "public-2"
 private2_description        = "private-2"
+tgw2_description            = "tgw-2"
+
 vpc_tag_key                 = "id-tag-key"
 vpc_tag_value               = "id-tag-value"
 

@@ -13,6 +13,11 @@ variable "availability_zone1" {
 variable "availability_zone2" {
   description = "Availability Zone 2 for VPC"
 }
+variable "create_tgw_connect_subnets" {
+  description = "Boolean for creating the tgw connect subnets"
+  type        = bool
+  default     = false
+}
 variable "vpc_name_security" {
   description = "VPC Name"
 }
@@ -28,17 +33,26 @@ variable "public_subnet_index" {
 variable "private_subnet_index" {
   description = "Index of the private subnet"
 }
+variable "tgw_subnet_index" {
+  description = "Index of the tgw subnet"
+}
 variable "public1_description" {
     description = "Description Public Subnet 1 TAG"
 }
 variable "private1_description" {
     description = "Description Private Subnet 1 TAG"
 }
+variable "tgw1_description" {
+    description = "Description TGW Subnet 1 TAG"
+}
 variable "public2_description" {
     description = "Description Public Subnet 2 TAG"
 }
 variable "private2_description" {
     description = "Description Private Subnet 2 TAG"
+}
+variable "tgw2_description" {
+    description = "Description TGW Subnet 2 TAG"
 }
 variable "vpc_tag_key" {
     description = "Random Tag Key to place on VPC for data ID"
