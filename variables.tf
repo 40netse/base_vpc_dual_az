@@ -18,6 +18,11 @@ variable "create_tgw_connect_subnets" {
   type        = bool
   default     = false
 }
+variable "create_ha_subnets" {
+  description = "Boolean for creating the HA subnets"
+  type        = bool
+  default     = false
+}
 variable "vpc_name_security" {
   description = "VPC Name"
 }
@@ -35,6 +40,15 @@ variable "private_subnet_index" {
 }
 variable "tgw_subnet_index" {
   description = "Index of the tgw subnet"
+  default = 3
+}
+variable "sync_subnet_index" {
+  description = "Index of the sync subnet"
+  default = 4
+}
+variable "mgmt_subnet_index" {
+  description = "Index of the sync subnet"
+  default = 5
 }
 variable "public1_description" {
     description = "Description Public Subnet 1 TAG"
@@ -44,6 +58,15 @@ variable "private1_description" {
 }
 variable "tgw1_description" {
     description = "Description TGW Subnet 1 TAG"
+    default = ""
+}
+variable "sync1_description" {
+    description = "Description Sync Subnet 1 TAG"
+    default = ""
+}
+variable "mgmt1_description" {
+    description = "Description Mgmt Subnet 1 TAG"
+    default = ""
 }
 variable "public2_description" {
     description = "Description Public Subnet 2 TAG"
@@ -53,6 +76,15 @@ variable "private2_description" {
 }
 variable "tgw2_description" {
     description = "Description TGW Subnet 2 TAG"
+    default = ""
+}
+variable "sync2_description" {
+    description = "Description Sync Subnet 2 TAG"
+    default = ""
+}
+variable "mgmt2_description" {
+    description = "Description Mgmt Subnet 2 TAG"
+    default = ""
 }
 variable "vpc_tag_key" {
     description = "Random Tag Key to place on VPC for data ID"
