@@ -1,20 +1,3 @@
-locals {
-    common_tags = {
-    Environment = var.environment
-  }
-}
-
-locals {
-    id_tag = var.vpc_tag_key != "" ? tomap({(var.vpc_tag_key) = (var.vpc_tag_value)}) : {}
-}
-
-provider "aws" {
-  region     = var.aws_region
-  default_tags {
-    tags = merge(local.common_tags, local.id_tag)
-  }
-}
-
 
 locals {
   availability_zone_1 = "${var.aws_region}${var.availability_zone1}"
