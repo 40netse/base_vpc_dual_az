@@ -72,11 +72,6 @@ output "sync1_route_table_id" {
   value = module.sync1_route_table[*].id
   description = "Id of the VPC Sync 1 Route Table"
 }
-output "mgmt1_route_table_id" {
-  value = module.mgmt1_route_table[*].id
-  description = "Id of the VPC Mgmt 1 Route Table"
-}
-
 output "private2_route_table_id" {
   value = module.private2_route_table.id
   description = "Id of the VPC Private 2 Route Table"
@@ -89,8 +84,4 @@ output "tgw2_route_table_id" {
 output "sync2_route_table_id" {
   value = module.sync2_route_table[*].id
   description = "Id of the VPC Sync 2 Route Table"
-}
-output "mgmt2_route_table_id" {
-  value = module.mgmt2_route_table[*].id
-  description = "Id of the VPC Mgmt 2 Route Table"
 }
