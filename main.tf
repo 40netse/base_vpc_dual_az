@@ -119,9 +119,11 @@ module "mgmt1-subnet" {
   count             = var.create_ha_subnets ? 1 : 0
   subnet_name       = "${var.customer_prefix}-${var.environment}-${var.mgmt1_description}-subnet"
 
-  vpc_id            = module.vpc.vpc_id
-  availability_zone = local.availability_zone_1
-  subnet_cidr       = local.mgmt_subnet_cidr_az1
+  vpc_id                = module.vpc.vpc_id
+  availability_zone     = local.availability_zone_1
+  subnet_cidr           = local.mgmt_subnet_cidr_az1
+  public_route          = 1
+  public_route_table_id = module.public_route_table.id
 }
 
 module "public2-subnet" {
@@ -169,9 +171,11 @@ module "mgmt2-subnet" {
   count             = var.create_ha_subnets ? 1 : 0
   subnet_name       = "${var.customer_prefix}-${var.environment}-${var.mgmt2_description}-subnet"
 
-  vpc_id            = module.vpc.vpc_id
-  availability_zone = local.availability_zone_2
-  subnet_cidr       = local.mgmt_subnet_cidr_az2
+  vpc_id                 = module.vpc.vpc_id
+  availability_zone      = local.availability_zone_2
+  subnet_cidr            = local.mgmt_subnet_cidr_az2
+  public_route           = 1
+  public_route_table_id  = module.public_route_table.id
 }
 
 module "public_route_table" {
@@ -206,14 +210,6 @@ module "sync1_route_table" {
   vpc_id                     = module.vpc.vpc_id
 }
 
-module "mgmt1_route_table" {
-  source  = "git::https://github.com/40netse/terraform-modules.git//aws_route_table"
-  count   = var.create_ha_subnets ? 1 : 0
-  rt_name = "${var.customer_prefix}-${var.environment}-${var.mgmt1_description}-rt"
-
-  vpc_id                     = module.vpc.vpc_id
-}
-
 module "private2_route_table" {
   source  = "git::https://github.com/40netse/terraform-modules.git//aws_route_table"
   rt_name = "${var.customer_prefix}-${var.environment}-${var.private2_description}-rt"
@@ -233,14 +229,6 @@ module "sync2_route_table" {
   source  = "git::https://github.com/40netse/terraform-modules.git//aws_route_table"
   count   = var.create_ha_subnets ? 1 : 0
   rt_name = "${var.customer_prefix}-${var.environment}-${var.sync2_description}-rt"
-
-  vpc_id                     = module.vpc.vpc_id
-}
-
-module "mgmt2_route_table" {
-  source  = "git::https://github.com/40netse/terraform-modules.git//aws_route_table"
-  count   = var.create_ha_subnets ? 1 : 0
-  rt_name = "${var.customer_prefix}-${var.environment}-${var.mgmt2_description}-rt"
 
   vpc_id                     = module.vpc.vpc_id
 }
@@ -266,13 +254,6 @@ module "sync1_route_table_association" {
   route_table_id             = module.sync1_route_table[0].id
 }
 
-module "mgmt1_route_table_association" {
-  source   = "git::https://github.com/40netse/terraform-modules.git//aws_route_table_association"
-  count   = var.create_ha_subnets ? 1 : 0
-  subnet_ids                 = module.mgmt1-subnet[0].id
-  route_table_id             = module.mgmt1_route_table[0].id
-}
-
 module "private2_route_table_association" {
   source   = "git::https://github.com/40netse/terraform-modules.git//aws_route_table_association"
 
@@ -293,11 +274,4 @@ module "sync2_route_table_association" {
   count   = var.create_ha_subnets ? 1 : 0
   subnet_ids                 = module.sync2-subnet[0].id
   route_table_id             = module.sync2_route_table[0].id
-}
-
-module "mgmt2_route_table_association" {
-  source   = "git::https://github.com/40netse/terraform-modules.git//aws_route_table_association"
-  count   = var.create_ha_subnets ? 1 : 0
-  subnet_ids                 = module.mgmt2-subnet[0].id
-  route_table_id             = module.mgmt2_route_table[0].id
 }
