@@ -26,9 +26,9 @@ subnet_bits                 = 8
 #
 public_subnet_index         = 1
 private_subnet_index        = 2
-tgw_subnet_index            = 3
-sync_subnet_index           = 4
-mgmt_subnet_index           = 5
+sync_subnet_index           = 3
+mgmt_subnet_index           = 4
+tgw_subnet_index            = 5
 
 public1_description         = "public-1"
 private1_description        = "private-1"

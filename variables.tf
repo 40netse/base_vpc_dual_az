@@ -34,20 +34,22 @@ variable subnet_bits {
 }
 variable "public_subnet_index" {
   description = "Index of the public subnet"
+  default = 1
 }
 variable "private_subnet_index" {
   description = "Index of the private subnet"
-}
-variable "tgw_subnet_index" {
-  description = "Index of the tgw subnet"
-  default = 3
+  default = 2
 }
 variable "sync_subnet_index" {
   description = "Index of the sync subnet"
-  default = 4
+  default = 3
 }
 variable "mgmt_subnet_index" {
   description = "Index of the sync subnet"
+  default = 4
+}
+variable "tgw_subnet_index" {
+  description = "Index of the tgw subnet"
   default = 5
 }
 variable "public1_description" {
