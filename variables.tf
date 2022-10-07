@@ -1,10 +1,10 @@
-variable "aws_region" {
+variable "region" {
   description = "The AWS region to use"
 }
-variable "customer_prefix" {
+variable "cp" {
   description = "Customer Prefix to apply to all resources"
 }
-variable "environment" {
+variable "env" {
   description = "The Tag Environment to differentiate prod/test/dev"
 }
 variable "availability_zone1" {
@@ -34,23 +34,19 @@ variable subnet_bits {
 }
 variable "public_subnet_index" {
   description = "Index of the public subnet"
-  default = 1
+  default = 0
 }
 variable "private_subnet_index" {
   description = "Index of the private subnet"
-  default = 2
-}
-variable "sync_subnet_index" {
-  description = "Index of the sync subnet"
-  default = 3
+  default = 1
 }
 variable "mgmt_subnet_index" {
   description = "Index of the sync subnet"
-  default = 4
+  default = 2
 }
 variable "tgw_subnet_index" {
   description = "Index of the tgw subnet"
-  default = 5
+  default = 3
 }
 variable "public1_description" {
     description = "Description Public Subnet 1 TAG"
@@ -60,10 +56,6 @@ variable "private1_description" {
 }
 variable "tgw1_description" {
     description = "Description TGW Subnet 1 TAG"
-    default = ""
-}
-variable "sync1_description" {
-    description = "Description Sync Subnet 1 TAG"
     default = ""
 }
 variable "mgmt1_description" {
@@ -80,20 +72,8 @@ variable "tgw2_description" {
     description = "Description TGW Subnet 2 TAG"
     default = ""
 }
-variable "sync2_description" {
-    description = "Description Sync Subnet 2 TAG"
-    default = ""
-}
 variable "mgmt2_description" {
     description = "Description Mgmt Subnet 2 TAG"
     default = ""
-}
-variable "vpc_tag_key" {
-    description = "Random Tag Key to place on VPC for data ID"
-    default     = ""
-}
-variable "vpc_tag_value" {
-    description = "Random Tag Value to place on VPC for data ID"
-    default     = ""
 }
 
