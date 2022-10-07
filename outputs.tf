@@ -77,20 +77,20 @@ output "cidr2_private2" {
 }
 
 output "cidr3_mgmt1" {
-  value = var.create_ha_subnets ? data.aws_subnet.mgmt1_cidr_block.*.cidr_block : [ "NA" ]
+  value = var.create_ha_subnets ? data.aws_subnet.mgmt1_cidr_block.*.cidr_block : tolist([ "NA" ])
   description = "Calculated CIDR for Subnet Mgmt 1"
 }
 output "cidr3_mgmt2" {
-  value = var.create_ha_subnets ? data.aws_subnet.mgmt1_cidr_block.*.cidr_block : [ "NA" ]
+  value = var.create_ha_subnets ? data.aws_subnet.mgmt1_cidr_block.*.cidr_block : tolist([ "NA" ])
   description = "Calculated CIDR for Subnet Mgmt 2"
 }
 
 output "cidr4_tgw1" {
-  value = var.create_tgw_connect_subnets ? data.aws_subnet.tgw1_cidr_block.*.cidr_block : [ "NA" ]
+  value = var.create_tgw_connect_subnets ? data.aws_subnet.tgw1_cidr_block.*.cidr_block : tolist([ "NA" ])
   description = "Calculated CIDR for Subnet TGW 1"
 }
 
 output "cidr4_tgw2" {
-  value = var.create_tgw_connect_subnets ? data.aws_subnet.tgw2_cidr_block.*.cidr_block : [ "NA" ]
+  value = var.create_tgw_connect_subnets ? data.aws_subnet.tgw2_cidr_block.*.cidr_block : tolist([ "NA" ])
   description = "Calculated CIDR for Subnet TGW 2"
 }
