@@ -22,12 +22,15 @@ subnet_bits                 = 8
 
 #
 # index in the subnet in the cidr range.
+# e.g. index 0 in 10.0.0.0/16 is 10.0.0.0/24
 # e.g. index 1 in 10.0.0.0/16 is 10.0.1.0/24
 #
-public_subnet_index         = 1
-private_subnet_index        = 2
-mgmt_subnet_index           = 3
-tgw_subnet_index            = 4
+# these are the defaults. Uncomment and modify if you wish
+#
+#public_subnet_index         = 0
+#private_subnet_index        = 1
+#mgmt_subnet_index           = 2
+#tgw_subnet_index            = 3
 
 public1_description         = "public-1"
 private1_description        = "private-1"
