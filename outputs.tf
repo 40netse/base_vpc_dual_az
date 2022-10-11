@@ -58,7 +58,6 @@ output "tgw2_route_table_id" {
   value = module.tgw2_route_table[*].id
   description = "Id of the VPC Private 2 Route Table"
 }
-
 output "cidr1_public1" {
   value = data.aws_subnet.public1_cidr_block.cidr_block
   description = "Calculated CIDR for Subnet Public 1"
@@ -77,20 +76,20 @@ output "cidr2_private2" {
 }
 
 output "cidr3_mgmt1" {
-  value = var.create_ha_subnets ? data.aws_subnet.mgmt1_cidr_block.*.cidr_block : tolist([ "NA" ])
+  value = data.aws_subnet.mgmt1_cidr_block.*.cidr_block
   description = "Calculated CIDR for Subnet Mgmt 1"
 }
 output "cidr3_mgmt2" {
-  value = var.create_ha_subnets ? data.aws_subnet.mgmt1_cidr_block.*.cidr_block : tolist([ "NA" ])
+  value = data.aws_subnet.mgmt1_cidr_block.*.cidr_block
   description = "Calculated CIDR for Subnet Mgmt 2"
 }
 
 output "cidr4_tgw1" {
-  value = var.create_tgw_connect_subnets ? data.aws_subnet.tgw1_cidr_block.*.cidr_block : tolist([ "NA" ])
+  value = data.aws_subnet.tgw1_cidr_block.*.cidr_block
   description = "Calculated CIDR for Subnet TGW 1"
 }
 
 output "cidr4_tgw2" {
-  value = var.create_tgw_connect_subnets ? data.aws_subnet.tgw2_cidr_block.*.cidr_block : tolist([ "NA" ])
+  value = data.aws_subnet.tgw2_cidr_block.*.cidr_block
   description = "Calculated CIDR for Subnet TGW 2"
 }
